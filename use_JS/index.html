@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <title>Aug Calendar</title>
     <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="scripts.js"></script>
   </head>
   <body>
-    <h1>8월 달력</h1>
+    <h1>8월달력</h1>
     <table>
-      <caption>1일이 목요일인 8월달 달력입니다.</caption>
       <tr>
         <th style="color: red">일</th>
         <th>월</th>
@@ -18,7 +18,7 @@
         <th>금</th>
         <th style="color: blue">토</th>
       </tr>
-      <tr>
+      <tr id="header">
         <th></th>
         <th></th>
         <th></th>
@@ -27,7 +27,7 @@
         <th>2</th>
         <th>3</th>
       </tr>
-      <tr>
+      <tr id="header">
         <th>4</th>
         <th>5</th>
         <th>6</th>
@@ -36,7 +36,7 @@
         <th>9</th>
         <th>10</th>
       </tr>
-      <tr>
+      <tr id="header">
         <th>11</th>
         <th>12</th>
         <th>13</th>
@@ -45,7 +45,7 @@
         <th>16</th>
         <th>17</th>
       </tr>
-      <tr>
+      <tr id="header">
         <th>18</th>
         <th>19</th>
         <th>20</th>
@@ -54,7 +54,7 @@
         <th>23</th>
         <th>24</th>
       </tr>
-      <tr>
+      <tr id="header">
         <th>25</th>
         <th>26</th>
         <th>27</th>
@@ -64,5 +64,14 @@
         <th>31</th>
       </tr>
     </table>
+
+    <script>
+    const para = document.querySelector('h1');    //h1을 선택한다
+    para.addEventListener('click', updateName);   //addEvent리스너를 붙여서 h1이 선택되었을 때 업데이트네임이 실행되게 한다
+    function updateName() {
+      let name = prompt('Enter a new name');
+      para.textContent = '8월이 생일인 ' + name;
+    }
+    </script>
   </body>
 </html>

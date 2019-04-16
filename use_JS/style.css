@@ -1,8 +1,16 @@
+/* padding, margin 등의 단축 속성은 값을
+   위, 오른쪽, 아래, 왼쪽(시계방향)으로 적용합니다.
+   다른 단축 속성도 있는데, padding으로 예를 들면
+   값을 두 개 사용할 경우 각각 위아래, 좌우를 설정합니다. */
+
 h1{
   text-align: center;
   padding-top: 50px;
   padding-bottom: 50px;
+  background-color: aqua;
+  border: 1px solid black;
 }
+
 table {
     table-layout: fixed;
     width: 1000px;
