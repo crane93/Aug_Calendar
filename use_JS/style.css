@@ -1,0 +1,17 @@
+h1{
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+table {
+    table-layout: fixed;
+    width: 1000px;
+    border-collapse: collapse;
+    border: 3px solid purple;
+    margin: auto;
+  }
+
+ td, th {
+   border: 1px solid rgb(190,190,190);
+   padding: 10px 20px;
+  }
