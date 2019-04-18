@@ -7,6 +7,10 @@
     <script src="scripts.js"></script>
   </head>
   <body>
+    <input type="button" value="change" onclick="
+        document.querySelector('h1').style.backgroundColor = 'red';
+        document.querySelector('h1').style.color = 'black';
+    ">
     <h1>8월달력</h1>
     <table>
       <tr>
@@ -18,51 +22,53 @@
         <th>금</th>
         <th style="color: blue">토</th>
       </tr>
-      <tr id="header">
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th>1</th>
-        <th>2</th>
-        <th>3</th>
-      </tr>
-      <tr id="header">
-        <th>4</th>
-        <th>5</th>
-        <th>6</th>
-        <th>7</th>
-        <th>8</th>
-        <th>9</th>
-        <th>10</th>
-      </tr>
-      <tr id="header">
-        <th>11</th>
-        <th>12</th>
-        <th>13</th>
-        <th>14</th>
-        <th>15</th>
-        <th>16</th>
-        <th>17</th>
-      </tr>
-      <tr id="header">
-        <th>18</th>
-        <th>19</th>
-        <th>20</th>
-        <th>21</th>
-        <th>22</th>
-        <th>23</th>
-        <th>24</th>
-      </tr>
-      <tr id="header">
-        <th>25</th>
-        <th>26</th>
-        <th>27</th>
-        <th>28</th>
-        <th>29</th>
-        <th>30</th>
-        <th>31</th>
-      </tr>
+      <div>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th id="days">1</th>
+          <th>2</th>
+          <th>3</th>
+        </tr>
+        <tr>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+          <th>10</th>
+        </tr>
+        <tr>
+          <th>11</th>
+          <th>12</th>
+          <th>13</th>
+          <th>14</th>
+          <th>15</th>
+          <th>16</th>
+          <th>17</th>
+        </tr>
+        <tr>
+          <th>18</th>
+          <th>19</th>
+          <th>20</th>
+          <th>21</th>
+          <th>22</th>
+          <th>23</th>
+          <th>24</th>
+        </tr>
+        <tr>
+          <th>25</th>
+          <th>26</th>
+          <th>27</th>
+          <th>28</th>
+          <th>29</th>
+          <th>30</th>
+          <th>31</th>
+        </tr>
+      </div>
     </table>
 
     <script>
@@ -73,5 +79,11 @@
       para.textContent = '8월이 생일인 ' + name;
     }
     </script>
+    <!--
+    <script>
+      var backBlue = document.getElementById("days");
+      backBlue.style.backgroundColor = "blue";
+    </script>
+    -->
   </body>
 </html>
