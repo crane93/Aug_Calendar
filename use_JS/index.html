@@ -7,22 +7,19 @@
     <script src="scripts.js"></script>
   </head>
   <body>
-    <input type="button" value="change" onclick="
-        document.querySelector('h1').style.backgroundColor = 'red';
-        document.querySelector('h1').style.color = 'black';
-    ">
-    <h1>8월달력</h1>
+    <input type="button" value="change" onclick="changeBackColor()">
+    <h1 onclick="inputName()">8월달력</h1>
     <table>
       <tr>
-        <th style="color: red">일</th>
+        <th id='Sun'>일</th>
         <th>월</th>
         <th>화</th>
         <th>수</th>
         <th>목</th>
         <th>금</th>
-        <th style="color: blue">토</th>
+        <th id='Sat'>토</th>
       </tr>
-      <div>
+      <div class="changeBackground">
         <tr>
           <th></th>
           <th></th>
@@ -70,20 +67,5 @@
         </tr>
       </div>
     </table>
-
-    <script>
-    const para = document.querySelector('h1');    //h1을 선택한다
-    para.addEventListener('click', updateName);   //addEvent리스너를 붙여서 h1이 선택되었을 때 업데이트네임이 실행되게 한다
-    function updateName() {
-      let name = prompt('Enter a new name');
-      para.textContent = '8월이 생일인 ' + name;
-    }
-    </script>
-    <!--
-    <script>
-      var backBlue = document.getElementById("days");
-      backBlue.style.backgroundColor = "blue";
-    </script>
-    -->
   </body>
 </html>

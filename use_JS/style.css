@@ -31,3 +31,11 @@ table {
    border: 1px solid rgb(190,190,190);
    padding: 10px 20px;
   }
+
+#Sun {
+  color: red;
+}
+
+#Sat{
+  color: blue;
+}
