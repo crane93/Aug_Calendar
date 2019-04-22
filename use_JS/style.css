@@ -39,3 +39,7 @@ table {
 #Sat{
   color: blue;
 }
+
+.setRed{
+  background-color: red;
+}
