@@ -12,13 +12,55 @@
 window.onload = function ()
 {
     changeBackColor();
-    inputName();
-    basicColor();
+    weekend();
+}
+
+/**
+ * 누르면 배경색이 변한다
+ */
+function changeBackColor() {
+  var containers = document.getElementsByClassName("changeBackground");
+  //changeBackground라는 클래스이름을 가진tr이 여러개 있음, containers는 배열이 된단
+  for (var i = 0; i < containers.length; i++) {
+    var ths = containers[i].querySelectorAll("th");
+  //김유리: let paras = document.querySelectorAll('.changeBackground th');
+  //document가 아니라 containers[i]였다
+    var thIndex = 0;
+    while (thIndex < ths.length) {
+      ths[thIndex].addEventListener('click', function (event) {
+        if (event.target.style.backgroundColor == 'red') {
+          event.target.style.backgroundColor = '';
+        } else {
+          event.target.style.backgroundColor = 'red';
+        }
+      });
+      thIndex++;
+    }
+  }
+}
+
+/**
+ * 주말인 셀을 클릭했을 때 알림창이 뜨는 메소드
+ */
+function weekend(){
+  var containers = document.getElementsByClassName("changeBackground");
+  
+  for(var i=1;i<containers.length;i++){
+    var Suns = containers[i].querySelector("th:nth-child(1)");
+    var Sats = containers[i].querySelector("th:nth-child(7)");
+
+    Suns.addEventListener('click', function(event){
+      alert('일요일');
+      console.log(sunDays[i]);
+    });  
+
+    Sats.addEventListener('click', function(event){
+      alert('토요일');
+    });
+  }
 }
 
 /*
-//html에 있는 스크립트 가져옴
-function changeBackColor(){
     var containers = document.getElementsByClassName("changeBackground");
     //changeBackground는 html에서 4개나 잇다 그래서 containers도 4개인 배열이 되더라
     for(var i=0; i<containers.length;i++){
@@ -31,14 +73,7 @@ function changeBackColor(){
     }    
 }
 */
-function inputName(){
-    const para = document.querySelector('h1');    //h1을 선택한다
-    para.addEventListener('click', updateName);   //addEvent리스너를 붙여서 h1이 선택되었을 때 업데이트네임이 실행되게 한다
-    function updateName() {
-      let name = prompt('Enter a new name');
-      para.textContent = '8월이 생일인 ' + name;
-    }
-}
+
 /*
   다시 클릭하면 원상태로 돌아오는 코드 
   function basicColor(){
@@ -58,24 +93,3 @@ function inputName(){
     let list = document.querySelector('.changeBackground th');  
 }       th를 가져옴, th의 스타일을 알아냄, 배경색이 빨간색인지 검사함, 빨간색이면 흰색배경으로 바꿈
 */
-
-function changeBackColor() {
-    var containers = document.getElementsByClassName("changeBackground");
-    //changeBackground라는 클래스이름을 가진tr이 여러개 있음, containers는 배열이 된단
-    for (var i = 0; i < containers.length; i++) {
-      var ths = containers[i].querySelectorAll("th");
-    //김유리: let paras = document.querySelectorAll('.changeBackground th');
-    //document가 아니라 containers[i]였다
-      var thIndex = 0;
-      while (thIndex < ths.length) {
-        ths[thIndex].addEventListener('click', function (event) {
-          if (event.target.style.backgroundColor == 'red') {
-            event.target.style.backgroundColor = '';
-          } else {
-            event.target.style.backgroundColor = 'red';
-          }
-        });
-        thIndex++;
-      }
-    }
-  }
