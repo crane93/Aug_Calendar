@@ -67,4 +67,9 @@ function weekend(){
     var x = event.target.textContent;
     alert(x+'일 토요일');
   });
+
+  var ts = containers[4].querySelector("th:nth-child(3)");
+  ts.addEventListener('click', function(event){
+    alert('김유리 생일!');
+  });  
 }
