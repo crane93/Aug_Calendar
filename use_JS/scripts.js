@@ -51,15 +51,20 @@ function weekend(){
     var Sats = containers[i].querySelector("th:nth-child(7)");
 
     Suns.addEventListener('click', function(event){
-      alert('일요일');
+      var x = event.target.textContent;
+      alert(x+'일 일요일');
+      var s = event.target
+      console.log(s);
     });  
     
     Sats.addEventListener('click', function(event){
-      alert('토요일');
+      var x = event.target.textContent;
+      alert(x+'일 토요일');
     });
   }
   var Sat = containers[0].querySelector("th:nth-child(7)");
   Sat.addEventListener('click', function(event){
-    alert('토요일');
+    var x = event.target.textContent;
+    alert(x+'일 토요일');
   });
 }
