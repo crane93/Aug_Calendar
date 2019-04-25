@@ -52,20 +52,20 @@ function weekend(){
 
     Suns.addEventListener('click', function(event){
       var x = event.target.textContent;
-      alert(x+'일 일요일');
+      alert('신나는 주말 '+x+'일입니다.');
       var s = event.target
       console.log(s);
     });  
     
     Sats.addEventListener('click', function(event){
       var x = event.target.textContent;
-      alert(x+'일 토요일');
+      alert('신나는 주말 '+x+'일입니다.');
     });
   }
   var Sat = containers[0].querySelector("th:nth-child(7)");
   Sat.addEventListener('click', function(event){
     var x = event.target.textContent;
-    alert(x+'일 토요일');
+    alert('신나는 주말 '+x+'일입니다.');
   });
 
   var ts = containers[4].querySelector("th:nth-child(3)");
