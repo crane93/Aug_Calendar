@@ -50,11 +50,14 @@ function weekend(){
     var Suns = containers[i].querySelector("th:nth-child(1)");
     var Sats = containers[i].querySelector("th:nth-child(7)");
 
+    console.log(Suns);
     Suns.addEventListener('click', function(event){
       var x = event.target.textContent;
       alert('신나는 주말 '+x+'일입니다.');
       var s = event.target
       console.log(s);
+      console.log(Suns);
+
     });  
     
     Sats.addEventListener('click', function(event){
