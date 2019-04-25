@@ -20,18 +20,19 @@ window.onload = function ()
  */
 function changeBackColor() {
   var containers = document.getElementsByClassName("changeBackground");
-  //changeBackground라는 클래스이름을 가진tr이 여러개 있음, containers는 배열이 된단
   for (var i = 0; i < containers.length; i++) {
     var ths = containers[i].querySelectorAll("th");
-  //김유리: let paras = document.querySelectorAll('.changeBackground th');
-  //document가 아니라 containers[i]였다
     var thIndex = 0;
     while (thIndex < ths.length) {
       ths[thIndex].addEventListener('click', function (event) {
-        if (event.target.style.backgroundColor == 'red') {
-          event.target.style.backgroundColor = '';
+        var previouSetRedElement = document.querySelector('.setRed');
+        if (previouSetRedElement === null) {
+          event.target.classList.add('setRed');
+        } else if (event.target.classList.value === 'setRed') {
+          event.target.classList.remove('setRed');
         } else {
-          event.target.style.backgroundColor = 'red';
+          previouSetRedElement.classList.remove('setRed');
+          event.target.classList.add('setRed');
         }
       });
       thIndex++;
@@ -49,47 +50,29 @@ function weekend(){
     var Suns = containers[i].querySelector("th:nth-child(1)");
     var Sats = containers[i].querySelector("th:nth-child(7)");
 
+    console.log(Suns);
     Suns.addEventListener('click', function(event){
-      alert('일요일');
-      console.log(sunDays[i]);
-    });  
+      var x = event.target.textContent;
+      alert('신나는 주말 '+x+'일입니다.');
+      var s = event.target
+      console.log(s);
+      console.log(Suns);
 
+    });  
+    
     Sats.addEventListener('click', function(event){
-      alert('토요일');
+      var x = event.target.textContent;
+      alert('신나는 주말 '+x+'일입니다.');
     });
   }
-}
+  var Sat = containers[0].querySelector("th:nth-child(7)");
+  Sat.addEventListener('click', function(event){
+    var x = event.target.textContent;
+    alert('신나는 주말 '+x+'일입니다.');
+  });
 
-/*
-    var containers = document.getElementsByClassName("changeBackground");
-    //changeBackground는 html에서 4개나 잇다 그래서 containers도 4개인 배열이 되더라
-    for(var i=0; i<containers.length;i++){
-        // var ths = containers[i].querySelectorAll("th");
-        containers[i].addEventListener('click', function(event){
-            event.target.style.backgroundColor = 'red';
-            // event.target: 이벤트가 시작된 DOM 요소 
-            // https://recoveryman.tistory.com/82
-        });
-    }    
+  var ts = containers[4].querySelector("th:nth-child(3)");
+  ts.addEventListener('click', function(event){
+    alert('김유리 생일!');
+  });  
 }
-*/
-
-/*
-  다시 클릭하면 원상태로 돌아오는 코드 
-  function basicColor(){
-    let vars = document.getElementsByClassName("changeBackground");
-    changeBackground을 가진 클래스가 여러개임, vars도 컬렉션 개체를 반환함 for문을 돌리자
-    let paras = document.querySelectorAll('.changeBackground th');
-    querySelectorAll은 CSS셀렉터를 건네준다
-    console.log(paras.length);
-    확인을 하면서 쓰기 지금같이 포문돌린다고 다 되는게 아니야
-    var pickedcell = document.getElementsByTagName("th");
-    var backRed = document.getElementsByTagName("th").style.backgroundColor;
-     if(compStyles.getPropertyValue('backgroundColor') == 'red'){
-         pickedcell.addEventListener('click', function(event){
-             event.target.style.backgroundColor="blue";
-         });
-     }
-    let list = document.querySelector('.changeBackground th');  
-}       th를 가져옴, th의 스타일을 알아냄, 배경색이 빨간색인지 검사함, 빨간색이면 흰색배경으로 바꿈
-*/
