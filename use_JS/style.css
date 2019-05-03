@@ -45,10 +45,14 @@ h1{
   background-color: red;
 }
 
-.rankingCell{
+.big {
   /*table-layout: fixed;*/
-  width: 100px;
+  float: right;
+  width: 400px;
   border-collapse: collapse;
-  border: 3px solid green;
-  margin: auto;
+  border: 2px solid green;
+}
+
+h4{
+  text-align: center;
 }
