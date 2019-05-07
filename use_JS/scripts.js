@@ -76,7 +76,7 @@ function weekend(){
   var Sat = containers[0].querySelector("th:nth-child(7)");
   Sat.addEventListener('click', function(event){
     var x = event.target.textContent;
-    alert(`신나는 주말 ${x} 일입니다.`);
+    alert('신나는 주말 '+x+'일입니다.');
   });
 
   var ts = containers[4].querySelector("th:nth-child(3)");
