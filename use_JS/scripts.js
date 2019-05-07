@@ -63,41 +63,16 @@ function weekend(){
     var Suns = containers[i].querySelector("th:nth-child(1)");
     var Sats = containers[i].querySelector("th:nth-child(7)");
 
-    Suns.addEventListener('click', function(event){
-      var x = event.target.textContent;
-      alert('신나는 주말 '+x+'일입니다.');
-    });  
-    
-    Sats.addEventListener('click', function(event){
-      var x = event.target.textContent;
-      alert('신나는 주말 '+x+'일입니다.');
-    });
+    alertWeekend(Suns);
+    alertWeekend(Sats);
   }
   var Sat = containers[0].querySelector("th:nth-child(7)");
-  Sat.addEventListener('click', function(event){
-    var x = event.target.textContent;
-    alert('신나는 주말 '+x+'일입니다.');
-  });
+  alertWeekend(Sat);
 
   var ts = containers[4].querySelector("th:nth-child(3)");
   ts.addEventListener('click', function(event){
     alert('김유리 생일!');
   });  
-}
-
-function limitation10Alert(clickedcount){
-  var countDiv = 0;
-
-  for(var property in clickedcount){
-    if(clickedcount[property] > 0){
-      countDiv++;
-    }
-  }
-
-  if(countDiv > 9){
-    return true;
-  }
-  return false;
 }
 
 function createDiv(clickedcount, textNodeContent) {
@@ -137,4 +112,26 @@ function usePreviousDiv(clickedcount, textNodeContent) {
   previousDiv.innerHTML = `클릭한 날짜${textNodeContent}의 클릭수 : ${clickedcount[textNodeContent]}`;
 
   return true;
+}
+
+function limitation10Alert(clickedcount){
+  var countDiv = 0;
+
+  for(var property in clickedcount){
+    if(clickedcount[property] > 0){
+      countDiv++;
+    }
+  }
+
+  if(countDiv > 9){
+    return true;
+  }
+  return false;
+}
+
+function alertWeekend(weekend){
+  weekend.addEventListener('click', function(event){
+    var x = event.target.textContent;
+    alert('신나는 주말 '+x+'일입니다.');
+  }); 
 }
