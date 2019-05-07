@@ -1,0 +1,58 @@
+/* padding, margin 등의 단축 속성은 값을
+   위, 오른쪽, 아래, 왼쪽(시계방향)으로 적용합니다.
+   다른 단축 속성도 있는데, padding으로 예를 들면
+   값을 두 개 사용할 경우 각각 위아래, 좌우를 설정합니다. */
+
+   /*css에 적용할 대상을 적을 때
+   id, class, 태그 중에 우선순위는?
+   즉 <table id="" class="">라고 되있고 css에 각각의 설정이 있다면?
+
+   1st id
+   2nd class
+   3rd 태그
+   데 고자이마스*/
+h1{
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #99ff66
+  ;
+}
+
+.canlender {
+    table-layout: fixed;
+    float: left;
+    width: 1000px;
+    border-collapse: collapse;
+    border: 3px solid green;
+    margin: auto;
+  }
+
+ td, th {
+   border: 1px solid rgb(190,190,190);
+   padding: 10px 20px;
+  }
+
+#Sun {
+  color: red;
+}
+
+#Sat{
+  color: blue;
+}
+
+.setRed{
+  background-color: red;
+}
+
+.big {
+  /*table-layout: fixed;*/
+  float: right;
+  width: 400px;
+  border-collapse: collapse;
+  border: 2px solid green;
+}
+
+h4{
+  text-align: center;
+}
