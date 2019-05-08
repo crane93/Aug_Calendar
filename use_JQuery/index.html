@@ -5,10 +5,15 @@
   <meta charset="utf-8">
   <title>Aug Calendar</title>
   <link href="style.css" rel="stylesheet" type="text/css">
-  <script src="scripts.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+ 
 </head>
 
 <body>
+  <li>tq</li>
+  <li>tq</li>
+  <li>tq</li>
+
   <h1>8월달력</h1>
     <table class="canlender"> 
       <tr>
@@ -21,13 +26,15 @@
         <th id='Sat'>토</th>
       </tr>
       <tr class="changeBackground">
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th>1</th>
-        <th>2</th>
-        <th>3</th>
+        <div>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+        </div>
       </tr>
       <tr class="changeBackground">
         <th>4</th>
@@ -66,5 +73,13 @@
         <th>31</th>
       </tr>
     </table>
+
+    
 </body>
+
+<script>
+  $(".changeBackground").on("click",'th',function(){
+    $(this).css('background-color','red');
+  });
+</script>
 </html>
