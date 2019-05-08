@@ -5,15 +5,11 @@
   <meta charset="utf-8">
   <title>Aug Calendar</title>
   <link href="style.css" rel="stylesheet" type="text/css">
-  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
  
 </head>
 
 <body>
-  <li>tq</li>
-  <li>tq</li>
-  <li>tq</li>
-
   <h1>8월달력</h1>
     <table class="canlender"> 
       <tr>
@@ -79,7 +75,15 @@
 
 <script>
   $(".changeBackground").on("click",'th',function(){
-    $(this).css('background-color','red');
+    var previouSetRedElement = $('.setRed');
+    if (previouSetRedElement === null) {
+      $(this).addClass('setRed');
+      } else if ($(this).attr("class") === 'setRed') {
+      $(this).removeClass("setRed");
+      } else {
+      previouSetRedElement.removeClass('setRed');
+      $(this).addClass('setRed');
+      }
   });
 </script>
 </html>
