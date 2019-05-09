@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <title>Aug Calendar</title>
   <link href="style.css" rel="stylesheet" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
- 
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="jquery.js"></script>               
 </head>
 
 <body>
@@ -62,28 +62,12 @@
       <tr class="changeBackground">
         <th>25</th>
         <th>26</th>
-        <th>27</th>
+        <th id="BD">27</th>
         <th>28</th>
         <th>29</th>
         <th>30</th>
         <th>31</th>
       </tr>
-    </table>
-
-    
+    </table>   
 </body>
-
-<script>
-  $(".changeBackground").on("click",'th',function(){
-    var previouSetRedElement = $('.setRed');
-    if (previouSetRedElement === null) {
-      $(this).addClass('setRed');
-      } else if ($(this).attr("class") === 'setRed') {
-      $(this).removeClass("setRed");
-      } else {
-      previouSetRedElement.removeClass('setRed');
-      $(this).addClass('setRed');
-      }
-  });
-</script>
 </html>
