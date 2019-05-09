@@ -1,21 +1,23 @@
-// 현재 1순위는ㄴ HTML 로드를 기다리는 코드가 없어서 그런거 같습니다.
-// 그럼 로드를 기다려주는 코드를 적어보고 해보겠습니다.
-
 $( document ).ready(function() {
-    ChangBackColor();
+    changBackColor();
     alertWeekends();
-    EasterEgg();
+    easterEgg();
 });
 
 var clickedcount = new Object();
-for(var i=1;i<=31;i++){
-  clickedcount[i]=0;
+for(var i = 1;i <= 31;i++){
+  clickedcount[i] = 0;
 }
 
-function ChangBackColor(){
+/**
+ * 클릭하면 배경색이 바뀌는 함수
+ * case1: 흰색배경일때 click이벤트 발생시 빨간색배경으로 바뀜
+ * case2: 빨간색배경일때 click이벤트 발생시 흰색배경으로 바뀜
+ */
+function changBackColor(){
     $(".changeBackground").on("click", 'th', function () {
         var previouSetRedElement = $('.setRed');
-        var getDay = parseInt($(this).text()) || 0;
+        var clickedDay = parseInt($(this).text()) || 0;
         if (previouSetRedElement === null) {
             $(this).addClass('setRed');
         } else if ($(this).attr("class") === 'setRed') {
@@ -24,41 +26,49 @@ function ChangBackColor(){
             previouSetRedElement.removeClass('setRed');
             $(this).addClass('setRed');
         }
-        CountClicked(getDay, clickedcount);
+        countClicked(clickedDay, clickedcount);
     });
 }
 
-function CountClicked(getDay, clickedcount){
-    if(getDay === 0){
+/**
+ * 클릭한 횟수를 저장하는 함수
+ * 새로운 div element를 만들어 부모 div인 .rankingView에 append한다
+ * @param clickedDay 
+ * @param clickedcount 
+ */
+function countClicked(clickedDay, clickedcount){
+    if(clickedDay === 0){
         return;
     }
-    if(previousLine(getDay,clickedcount)){
+    if(checkDivExist(clickedDay,clickedcount)){
         return;
     }
     if(limitDivUpto10(clickedcount)){
         alert("클릭하는 날짜는 10개를 넘을 수 없습니다.");
         return;
     }
-    clickedcount[getDay]++;
-    var r = `클릭한 날짜 ${getDay}일은 ${clickedcount[getDay]}번 눌렀습니다.`;
-    $(".rakingView").append("<div id=day"+getDay+">"+r+"</div>");
+    clickedcount[clickedDay]++;
+    var showHowManyClicked = `클릭한 날짜 ${clickedDay}일은 ${clickedcount[clickedDay]}번 눌렀습니다.`;
+    $(".rakingView").append("<div id=day"+clickedDay+">"+showHowManyClicked+"</div>");
 }
 
-function previousLine(getDay, clickedcount){
-    console.log($("#day"+getDay+"").length);
-
-    if($("#day"+getDay+"").length === 0){
+/**
+ * 이미 만들어진 div가 있는지 확인하는 메소드
+ * @param clickedDay 
+ * @param clickedcount 
+ */
+function checkDivExist(clickedDay, clickedcount){
+    if($("#day"+clickedDay).length === 0){
         return false;
     }
 
-    clickedcount[getDay]++;
-    $("#day"+getDay+"").html(`클릭한 날짜 ${getDay}일은 ${clickedcount[getDay]}번 눌렀습니다.`);
+    clickedcount[clickedDay]++;
+    $("#day"+clickedDay).html(`클릭한 날짜 ${clickedDay}일은 ${clickedcount[clickedDay]}번 눌렀습니다.`);
     return true;
 }
 
 function limitDivUpto10(clickedcount){
     var countDiv = 0;
-
     for(var property in clickedcount){
       if(clickedcount[property] > 0){
         countDiv++;
@@ -73,12 +83,12 @@ function limitDivUpto10(clickedcount){
 
 function alertWeekends() {
     $(".changeBackground").on("click",'th:nth-child(1) , th:nth-child(7)', function(){
-        var t = $(this).text();
-        alert(`신나는 주말 ${t}일 입니다`);
+        var day = $(this).text();
+        alert(`신나는 주말 ${day}일 입니다`);
     });
 }
 
-function EasterEgg() {
+function easterEgg() {
     $("#BD").on("click", function(){
         alert("김유리님 생일이다!");
     });
