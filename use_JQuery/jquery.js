@@ -4,9 +4,9 @@ $( document ).ready(function() {
     easterEgg();
 });
 
-var clickedcount = new Object();
+var clickedCount = new Object();
 for(var i = 1;i <= 31;i++){
-  clickedcount[i] = 0;
+  clickedCount[i] = 0;
 }
 
 /**
@@ -26,7 +26,7 @@ function changBackColor(){
             previouSetRedElement.removeClass('setRed');
             $(this).addClass('setRed');
         }
-        countClicked(clickedDay, clickedcount);
+        countClicked(clickedDay, clickedCount);
     });
 }
 
@@ -34,43 +34,43 @@ function changBackColor(){
  * 클릭한 횟수를 저장하는 함수
  * 새로운 div element를 만들어 부모 div인 .rankingView에 append한다
  * @param clickedDay 
- * @param clickedcount 
+ * @param clickedCount 
  */
-function countClicked(clickedDay, clickedcount){
+function countClicked(clickedDay, clickedCount){
     if(clickedDay === 0){
         return;
     }
-    if(checkDivExist(clickedDay,clickedcount)){
+    if(checkDivExist(clickedDay,clickedCount)){
         return;
     }
-    if(limitDivUpto10(clickedcount)){
+    if(limitDivUpto10(clickedCount)){
         alert("클릭하는 날짜는 10개를 넘을 수 없습니다.");
         return;
     }
-    clickedcount[clickedDay]++;
-    var showHowManyClicked = `클릭한 날짜 ${clickedDay}일은 ${clickedcount[clickedDay]}번 눌렀습니다.`;
+    clickedCount[clickedDay]++;
+    var showHowManyClicked = `클릭한 날짜 ${clickedDay}일은 ${clickedcount[clickedCount]}번 눌렀습니다.`;
     $(".rakingView").append("<div id=day"+clickedDay+">"+showHowManyClicked+"</div>");
 }
 
 /**
  * 이미 만들어진 div가 있는지 확인하는 메소드
  * @param clickedDay 
- * @param clickedcount 
+ * @param clickedCount 
  */
-function checkDivExist(clickedDay, clickedcount){
+function checkDivExist(clickedDay, clickedCount){
     if($("#day"+clickedDay).length === 0){
         return false;
     }
 
-    clickedcount[clickedDay]++;
-    $("#day"+clickedDay).html(`클릭한 날짜 ${clickedDay}일은 ${clickedcount[clickedDay]}번 눌렀습니다.`);
+    clickedCount[clickedDay]++;
+    $("#day"+clickedDay).html(`클릭한 날짜 ${clickedDay}일은 ${clickedCount[clickedDay]}번 눌렀습니다.`);
     return true;
 }
 
-function limitDivUpto10(clickedcount){
+function limitDivUpto10(clickedCount){
     var countDiv = 0;
-    for(var property in clickedcount){
-      if(clickedcount[property] > 0){
+    for(var property in clickedCount){
+      if(clickedCount[property] > 0){
         countDiv++;
       }
     }
