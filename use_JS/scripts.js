@@ -97,7 +97,7 @@ function createDiv(clickedcount, textNodeContent) {
   var newTextnode = document.createTextNode(`클릭한 날짜${textNodeContent}의 클릭수 : ${clickedcount[textNodeContent]}`);
   newDiv.appendChild(newTextnode);
 
-  newDiv.id = 'day' + textNodeContent;       
+  newDiv.id = 'day' + textNodeContent;            //id생성하기 
 
   parentElement.appendChild(newDiv);
 }

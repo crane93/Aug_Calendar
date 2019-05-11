@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <title>Aug Calendar</title>
   <link href="style.css" rel="stylesheet" type="text/css">
-  <script src="scripts.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="jquery.js"></script>               
 </head>
 
 <body>
@@ -21,13 +22,15 @@
         <th id='Sat'>토</th>
       </tr>
       <tr class="changeBackground">
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th>1</th>
-        <th>2</th>
-        <th>3</th>
+        <div>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+        </div>
       </tr>
       <tr class="changeBackground">
         <th>4</th>
@@ -59,12 +62,16 @@
       <tr class="changeBackground">
         <th>25</th>
         <th>26</th>
-        <th>27</th>
+        <th id="BD">27</th>
         <th>28</th>
         <th>29</th>
         <th>30</th>
         <th>31</th>
       </tr>
-    </table>
+    </table> 
+    <div class="big">
+      <h4>날짜클릭랭킹</h4> 
+        <div class="rakingView"></div>
+    </div>
 </body>
 </html>
